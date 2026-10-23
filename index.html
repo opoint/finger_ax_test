@@ -12,20 +12,26 @@
   <h1>헬스장 기구 투자 순위</h1>
 
   <section>
-    <h2>1. 위치와 반경</h2>
-    <div id="map"></div>
+    <div class="map-wrap">
+      <div id="map"></div>
+      <aside class="brand-panel">
+        <div class="brand-head">
+          <strong>선호 브랜드</strong>
+          <button id="reset-btn" type="button">리셋</button>
+        </div>
+        <div id="brand-list"></div>
+        <p class="muted small">체크 시 ×<span id="bonus-rate"></span> 가산 (초안)</p>
+      </aside>
+    </div>
     <div class="row">
       <label for="radius">반경</label>
       <input type="range" id="radius" min="0.5" max="3" step="any" value="1">
       <output id="radius-out">1.0km</output>
     </div>
     <p class="muted" id="coord"></p>
-    <button id="copy-btn" type="button">분석 요청 문구 복사</button>
-    <p class="muted" id="copy-msg">분석은 Claude 대화에서 실행합니다. 복사한 문구를 Claude에 붙여넣으세요.</p>
   </section>
 
   <section>
-    <h2>2. 결과</h2>
     <p class="muted" id="result-meta"></p>
     <div class="table-wrap">
       <table>
@@ -36,13 +42,6 @@
       </table>
     </div>
     <ul id="excluded" class="muted"></ul>
-  </section>
-
-  <section>
-    <h2>3. 선호 브랜드</h2>
-    <p class="muted">체크한 브랜드의 모델 점수에 ×<span id="bonus-rate"></span> 가산점을 적용합니다. (가산 방식은 미확정 초안)</p>
-    <div id="brand-list"></div>
-    <button id="reset-btn" type="button">리셋</button>
   </section>
 </main>
 

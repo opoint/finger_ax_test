@@ -13,7 +13,13 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
-const marker = L.marker(DEFAULT_CENTER, { draggable: true }).addTo(map);
+const marker = L.marker(DEFAULT_CENTER, {
+  draggable: true,
+  icon: L.divIcon({ className: 'me-pin', iconSize: [18, 18] })
+}).addTo(map).bindTooltip('내 위치', { direction: 'top', offset: [0, -10] });
+const gymLayer = L.layerGroup().addTo(map);
+L.DomEvent.disableClickPropagation(document.querySelector('.brand-panel'));
+L.DomEvent.disableScrollPropagation(document.querySelector('.brand-panel'));
 const circle = L.circle(DEFAULT_CENTER, { radius: 1000 }).addTo(map);
 const radiusInput = document.getElementById('radius');
 const radiusOut = document.getElementById('radius-out');
@@ -25,24 +31,13 @@ function updateArea() {
   circle.setLatLng(pos);
   circle.setRadius(km * 1000);
   radiusOut.textContent = km.toFixed(1) + 'km';
-  coordText.textContent = `중심 좌표 ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)}`;
+  coordText.textContent = `내 위치 ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)}`;
 }
 marker.on('drag', updateArea);
+map.on('click', e => { marker.setLatLng(e.latlng); updateArea(); });
 radiusInput.addEventListener('input', updateArea);
 updateArea();
 
-document.getElementById('copy-btn').addEventListener('click', async () => {
-  const pos = marker.getLatLng();
-  const km = Number(radiusInput.value).toFixed(1);
-  const text = `/gym-equipment-ranking 중심 좌표 ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)} 반경 ${km}km 헬스장 기구 투자 순위 분석해줘`;
-  const msg = document.getElementById('copy-msg');
-  try {
-    await navigator.clipboard.writeText(text);
-    msg.textContent = '복사했습니다. Claude 대화에 붙여넣으세요.';
-  } catch (e) {
-    msg.textContent = text;
-  }
-});
 
 // ---------- 2. 결과 계산 ----------
 function brandScore(name) {
@@ -62,6 +57,7 @@ function render() {
     .map(g => ({ ...g, score: scoreGym(g, usePreferred), modelCount: g.models.length }))
     .sort((a, b) => b.score - a.score || b.modelCount - a.modelCount);
 
+  gymLayer.clearLayers();
   const body = document.getElementById('rank-body');
   body.innerHTML = '';
   let rank = 0, prev = null;
@@ -77,6 +73,9 @@ function render() {
       + `<td>${g.modelCount}</td><td>${g.validPhotos}</td><td>${topBrands}</td>`
       + `<td class="${low ? 'low' : ''}">${low ? '낮음' : '보통'}</td>`;
     body.appendChild(tr);
+    L.circleMarker([g.lat, g.lng], { radius: 8, color: '#fff', weight: 2, fillColor: '#e8590c', fillOpacity: 1 })
+      .bindTooltip(`${rank}. ${g.name}`, { permanent: true, direction: 'right', className: 'gym-label' })
+      .addTo(gymLayer);
   });
 
   document.getElementById('result-meta').textContent =
