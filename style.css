@@ -11,7 +11,6 @@ section { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; padd
 #brand-list { display: flex; flex-direction: column; gap: 6px; }
 #brand-list label { display: flex; align-items: center; gap: 6px; }
 .row { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
-.row input { flex: 1; }
 .row output { min-width: 56px; text-align: right; font-weight: 600; }
 .muted { color: #6b6b6b; font-size: 14px; }
 .small { font-size: 12px; margin: 8px 0 0; }
@@ -22,8 +21,21 @@ table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-nu
 th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; white-space: nowrap; }
 td.low { color: #b3261e; }
 .me-pin { background: #1f6feb; border: 3px solid #fff; border-radius: 50%; box-shadow: 0 0 0 1px #1f6feb; }
-.gym-label { font-size: 12px; font-weight: 600; }
 @media (max-width: 600px) {
   #map { height: 360px; }
   .brand-panel { width: 160px; }
 }
+
+.gym-pin { display: flex; align-items: center; justify-content: center; background: #e8590c; border: 2px solid #fff; border-radius: 50%; box-shadow: 0 1px 3px rgba(0,0,0,.35); color: #fff; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.gym-pin:hover { background: #c94a06; }
+.gym-name { font-size: 13px; font-weight: 600; }
+
+input[type="range"]#radius { flex: 1; -webkit-appearance: none; appearance: none; height: 6px; border-radius: 999px; background: linear-gradient(to right, #1f6feb 0 var(--fill, 20%), #e3e6eb var(--fill, 20%) 100%); cursor: pointer; }
+input[type="range"]#radius:focus-visible { outline: 2px solid #1f6feb; outline-offset: 6px; }
+input[type="range"]#radius::-webkit-slider-thumb { -webkit-appearance: none; width: 22px; height: 22px; border-radius: 50%; background: #fff; border: 2px solid #1f6feb; box-shadow: 0 1px 4px rgba(0,0,0,.2); transition: transform .15s; }
+input[type="range"]#radius::-webkit-slider-thumb:hover { transform: scale(1.12); }
+input[type="range"]#radius::-moz-range-thumb { width: 18px; height: 18px; border-radius: 50%; background: #fff; border: 2px solid #1f6feb; box-shadow: 0 1px 4px rgba(0,0,0,.2); }
+input[type="range"]#radius::-moz-range-track { height: 6px; border-radius: 999px; background: transparent; }
+.row label { font-size: 14px; color: #6b6b6b; }
+.row output { color: #1f6feb; }
+@media (prefers-reduced-motion: reduce) { input[type="range"]#radius::-webkit-slider-thumb { transition: none; } }

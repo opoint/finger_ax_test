@@ -31,6 +31,8 @@ function updateArea() {
   circle.setLatLng(pos);
   circle.setRadius(km * 1000);
   radiusOut.textContent = km.toFixed(1) + 'km';
+  const pct = (km - radiusInput.min) / (radiusInput.max - radiusInput.min) * 100;
+  radiusInput.style.setProperty('--fill', pct + '%');
   coordText.textContent = `내 위치 ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)}`;
 }
 marker.on('drag', updateArea);
@@ -73,8 +75,10 @@ function render() {
       + `<td>${g.modelCount}</td><td>${g.validPhotos}</td><td>${topBrands}</td>`
       + `<td class="${low ? 'low' : ''}">${low ? '낮음' : '보통'}</td>`;
     body.appendChild(tr);
-    L.circleMarker([g.lat, g.lng], { radius: 8, color: '#fff', weight: 2, fillColor: '#e8590c', fillOpacity: 1 })
-      .bindTooltip(`${rank}. ${g.name}`, { permanent: true, direction: 'right', className: 'gym-label' })
+    L.marker([g.lat, g.lng], {
+      icon: L.divIcon({ className: 'gym-pin', html: `<span>${rank}</span>`, iconSize: [28, 28] })
+    })
+      .bindTooltip(g.name, { direction: 'top', offset: [0, -14], className: 'gym-name' })
       .addTo(gymLayer);
   });
 
