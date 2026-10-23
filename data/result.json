@@ -4,7 +4,7 @@
     37.6584,
     126.832
   ],
-  "radiusKm": 1.0,
+  "radiusKm": 3.0,
   "gyms": [
     {
       "name": "A짐",
@@ -111,6 +111,166 @@
         {
           "brand": "미상",
           "model": "Bench"
+        }
+      ]
+    },
+    {
+      "name": "이프로짐",
+      "lat": 37.669,
+      "lng": 126.838,
+      "validPhotos": 88,
+      "models": [
+        {
+          "brand": "Gym80",
+          "model": "Pendulum Squat"
+        },
+        {
+          "brand": "Gym80",
+          "model": "Incline Chest"
+        },
+        {
+          "brand": "Panatta",
+          "model": "Hack Squat"
+        },
+        {
+          "brand": "Arsenal Strength",
+          "model": "Leg Press"
+        },
+        {
+          "brand": "Prime",
+          "model": "Leg Extension"
+        },
+        {
+          "brand": "Hammer Strength",
+          "model": "Row"
+        }
+      ]
+    },
+    {
+      "name": "엠바디",
+      "lat": 37.647,
+      "lng": 126.824,
+      "validPhotos": 36,
+      "models": [
+        {
+          "brand": "Life Fitness",
+          "model": "Treadmill"
+        },
+        {
+          "brand": "Life Fitness",
+          "model": "Chest Press"
+        },
+        {
+          "brand": "Matrix",
+          "model": "Lat Pulldown"
+        },
+        {
+          "brand": "Newtech",
+          "model": "Leg Curl"
+        },
+        {
+          "brand": "Newtech",
+          "model": "Shoulder Press"
+        }
+      ]
+    },
+    {
+      "name": "오케이피트니스",
+      "lat": 37.665,
+      "lng": 126.817,
+      "validPhotos": 22,
+      "models": [
+        {
+          "brand": "DRAX",
+          "model": "Treadmill"
+        },
+        {
+          "brand": "리얼리더",
+          "model": "Chest Press"
+        },
+        {
+          "brand": "리얼리더",
+          "model": "Leg Press"
+        },
+        {
+          "brand": "미상",
+          "model": "Bench"
+        }
+      ]
+    },
+    {
+      "name": "제이스포츠",
+      "lat": 37.64,
+      "lng": 126.842,
+      "validPhotos": 57,
+      "models": [
+        {
+          "brand": "Hammer Strength",
+          "model": "Chest Press"
+        },
+        {
+          "brand": "Hammer Strength",
+          "model": "Hack Squat"
+        },
+        {
+          "brand": "Cybex",
+          "model": "Leg Extension"
+        },
+        {
+          "brand": "Booty Builder",
+          "model": "Hip Thrust"
+        },
+        {
+          "brand": "Precor",
+          "model": "Treadmill"
+        }
+      ]
+    },
+    {
+      "name": "케이짐",
+      "lat": 37.678,
+      "lng": 126.846,
+      "validPhotos": 19,
+      "models": [
+        {
+          "brand": "Technogym",
+          "model": "Treadmill"
+        },
+        {
+          "brand": "Technogym",
+          "model": "Leg Press"
+        },
+        {
+          "brand": "Freemotion",
+          "model": "Dual Cable"
+        }
+      ]
+    },
+    {
+      "name": "엘휘트니스",
+      "lat": 37.635,
+      "lng": 126.815,
+      "validPhotos": 45,
+      "models": [
+        {
+          "brand": "Newtech",
+          "model": "Chest Press"
+        },
+        {
+          "brand": "Newtech",
+          "model": "Lat Pulldown"
+        },
+        {
+          "brand": "Newtech",
+          "model": "Hack Squat"
+        },
+        {
+          "brand": "DRAX",
+          "model": "Treadmill"
+        },
+        {
+          "brand": "Nautilus",
+          "model": "Leg Curl"
         }
       ]
     }

@@ -39,3 +39,24 @@ input[type="range"]#radius::-moz-range-track { height: 6px; border-radius: 999px
 .row label { font-size: 14px; color: #6b6b6b; }
 .row output { color: #1f6feb; }
 @media (prefers-reduced-motion: reduce) { input[type="range"]#radius::-webkit-slider-thumb { transition: none; } }
+
+.gym-pin.first { background: #d4a106; box-shadow: 0 0 0 4px rgba(212,161,6,.35), 0 1px 3px rgba(0,0,0,.35); width: 34px !important; height: 34px !important; margin-left: -17px !important; margin-top: -17px !important; font-size: 15px; }
+.gym-pin.first:hover { background: #b88a00; }
+.gym-pin.pulse { animation: pin-pulse .9s ease-out 2; }
+.gym-pin.pop { animation: pin-pop .45s ease-out; }
+@keyframes pin-pulse { 0% { box-shadow: 0 0 0 0 rgba(232,89,12,.6); } 100% { box-shadow: 0 0 0 14px rgba(232,89,12,0); } }
+@keyframes pin-pop { 0% { transform: scale(0); } 70% { transform: scale(1.25); } 100% { transform: scale(1); } }
+
+tr.first td { background: #fff8e1; font-weight: 600; }
+tr.flash td { animation: row-flash 1.6s ease-out; }
+@keyframes row-flash { 0% { background: #ffe8d6; } 100% { background: transparent; } }
+.rank-cell { display: flex; align-items: center; gap: 6px; }
+.rank-num { min-width: 1.2em; }
+.delta { font-size: 11px; font-weight: 700; padding: 1px 5px; border-radius: 999px; }
+.delta.up { color: #1a7f37; background: #e6f4ea; }
+.delta.down { color: #b3261e; background: #fbe9e7; }
+.delta.new { color: #1f6feb; background: #e7f0fe; }
+td.empty { color: #6b6b6b; text-align: center; padding: 24px 8px; white-space: normal; }
+@media (prefers-reduced-motion: reduce) {
+  .gym-pin.pulse, .gym-pin.pop, tr.flash td { animation: none; }
+}
