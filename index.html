@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>헬스장 기구 투자 순위</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <h1>헬스장 기구 투자 순위</h1>
+
+  <section>
+    <h2>1. 위치와 반경</h2>
+    <div id="map"></div>
+    <div class="row">
+      <label for="radius">반경</label>
+      <input type="range" id="radius" min="0.5" max="3" step="any" value="1">
+      <output id="radius-out">1.0km</output>
+    </div>
+    <p class="muted" id="coord"></p>
+    <button id="copy-btn" type="button">분석 요청 문구 복사</button>
+    <p class="muted" id="copy-msg">분석은 Claude 대화에서 실행합니다. 복사한 문구를 Claude에 붙여넣으세요.</p>
+  </section>
+
+  <section>
+    <h2>2. 결과</h2>
+    <p class="muted" id="result-meta"></p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>순위</th><th>업체명</th><th>점수</th><th>고유 모델 수</th><th>유효 사진 수</th><th>주요 브랜드</th><th>신뢰도</th></tr>
+        </thead>
+        <tbody id="rank-body"></tbody>
+      </table>
+    </div>
+    <ul id="excluded" class="muted"></ul>
+  </section>
+
+  <section>
+    <h2>3. 선호 브랜드</h2>
+    <p class="muted">체크한 브랜드의 모델 점수에 ×<span id="bonus-rate"></span> 가산점을 적용합니다. (가산 방식은 미확정 초안)</p>
+    <div id="brand-list"></div>
+    <button id="reset-btn" type="button">리셋</button>
+  </section>
+</main>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

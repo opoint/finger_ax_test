@@ -1,0 +1,37 @@
+{
+  "label": "샘플 데이터(가상)",
+  "center": [37.6584, 126.832],
+  "radiusKm": 1.0,
+  "gyms": [
+    { "name": "샘플 헬스장 A", "validPhotos": 64, "models": [
+      { "brand": "Gym80", "model": "Pure Kraft Leg Press" },
+      { "brand": "Panatta", "model": "Super High Row" },
+      { "brand": "Hammer Strength", "model": "ISO-Lateral Chest Press" },
+      { "brand": "Hammer Strength", "model": "ISO-Lateral Row" },
+      { "brand": "Life Fitness", "model": "Treadmill" }
+    ]},
+    { "name": "샘플 헬스장 B", "validPhotos": 41, "models": [
+      { "brand": "Hammer Strength", "model": "ISO-Lateral Chest Press" },
+      { "brand": "Hammer Strength", "model": "Leg Press" },
+      { "brand": "Cybex", "model": "Lat Pulldown" },
+      { "brand": "Newtech", "model": "Hack Squat" },
+      { "brand": "Newtech", "model": "Seated Row" },
+      { "brand": "DRAX", "model": "Treadmill" }
+    ]},
+    { "name": "샘플 헬스장 C", "validPhotos": 33, "models": [
+      { "brand": "Newtech", "model": "Chest Press" },
+      { "brand": "Newtech", "model": "Leg Extension" },
+      { "brand": "Newtech", "model": "Lat Pulldown" },
+      { "brand": "DRAX", "model": "Treadmill" },
+      { "brand": "미상", "model": "Smith Machine" }
+    ]},
+    { "name": "샘플 헬스장 D", "validPhotos": 14, "models": [
+      { "brand": "Technogym", "model": "Treadmill" },
+      { "brand": "Precor", "model": "Cable Crossover" },
+      { "brand": "미상", "model": "Bench" }
+    ]}
+  ],
+  "excluded": [
+    { "name": "샘플 헬스장 E", "reason": "사진 없음" }
+  ]
+}
