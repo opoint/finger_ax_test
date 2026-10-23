@@ -26,7 +26,6 @@ L.DomEvent.disableScrollPropagation(document.querySelector('.brand-panel'));
 
 const radiusInput = document.getElementById('radius');
 const radiusOut = document.getElementById('radius-out');
-const coordText = document.getElementById('coord');
 
 function updateArea() {
   const km = Number(radiusInput.value);
@@ -36,7 +35,6 @@ function updateArea() {
   radiusOut.textContent = km.toFixed(1) + 'km';
   const pct = (km - radiusInput.min) / (radiusInput.max - radiusInput.min) * 100;
   radiusInput.style.setProperty('--fill', pct + '%');
-  coordText.textContent = `내 위치 ${pos.lat.toFixed(5)}, ${pos.lng.toFixed(5)}`;
   if (result) { renderBrands(); render(); }
 }
 marker.on('drag', updateArea);
