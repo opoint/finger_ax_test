@@ -82,8 +82,6 @@ function render() {
       .addTo(gymLayer);
   });
 
-  document.getElementById('result-meta').textContent =
-    `${result.label} · 중심 ${result.center.join(', ')} · 반경 ${result.radiusKm}km · ${usePreferred ? '선호 브랜드 적용 순위' : '기본 순위'}`;
 }
 
 function renderBrands() {
